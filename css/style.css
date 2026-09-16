@@ -1,1 +1,33 @@
+/* Custom CSS - style.css */
 
+/* Security: Prevent users from dragging or easily right-clicking images to steal your assets */
+.protected-img {
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: none; /* Prevents right click context menu on images */
+}
+
+/* Custom Scrollbar for a premium look */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f3f4f6; 
+}
+::-webkit-scrollbar-thumb {
+    background: #d97706; /* Matches the amber-600 theme */
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b45309; 
+}
+
+/* Smooth fade-in animation for hero section */
+.hero-section {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
