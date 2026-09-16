@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Gift Catalogue - Find the best luxury gifts and corporate presents.">
+    <title>Premium Gifts | Home</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Tailwind CSS (via CDN for layout, standard for static sites without a build step) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- External JavaScript (Deferred to load after HTML) -->
+    <script src="js/script.js" defer></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex-shrink-0 font-bold text-2xl tracking-tight text-gray-900">
+                Gift<span class="text-amber-600">Logo</span>
+            </div>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#home" class="hover:text-amber-600 transition">Home</a>
+                <a href="#products" class="hover:text-amber-600 transition">Products</a>
+                <a href="#about" class="hover:text-amber-600 transition">About Us</a>
+                <a href="#contact" class="hover:text-amber-600 transition">Bulk Enquiry</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden font-bold text-amber-600 focus:outline-none">
+                Menu
+            </button>
+        </div>
+        
+        <!-- Mobile Nav Dropdown (Hidden by default) -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-2 space-y-2 shadow-lg absolute w-full">
+            <a href="#home" class="block py-2 text-gray-800 hover:text-amber-600">Home</a>
+            <a href="#products" class="block py-2 text-gray-800 hover:text-amber-600">Products</a>
+            <a href="#about" class="block py-2 text-gray-800 hover:text-amber-600">About Us</a>
+            <a href="#contact" class="block py-2 text-gray-800 hover:text-amber-600">Bulk Enquiry</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gray-900 text-white overflow-hidden hero-section">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=1200" alt="Gifts Background" class="w-full h-full object-cover opacity-30 protected-img">
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 flex flex-col items-center text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Crafted for the Perfect Moment</h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mb-8">Discover our curated collection of luxury pens, premium gift sets, and corporate hampers.</p>
+            <a href="#products" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">View Catalogue</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900">Featured Products</h2>
+            <p class="mt-2 text-gray-600">Browse our exclusive collection.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Product 1 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition">
+                <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=600" alt="Premium Pen" class="w-full h-64 object-cover protected-img">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900">Premium Luxury Pen</h3>
+                    <p class="text-gray-500 text-sm mt-1">Matte black finish with gold-plated nib.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <span class="text-lg font-bold text-amber-600">₹2,499</span>
+                    </div>
+                    <a href="https://wa.me/91XXXXXXXXXX?text=Hi,%20I'm%20interested%20in%20the%20Premium%20Luxury%20Pen%20(₹2,499)." target="_blank" rel="noopener noreferrer" class="mt-4 w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-medium py-2.5 rounded-lg transition">
+                        Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-lg border p-8 md:p-12">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Bulk & Corporate Orders</h2>
+                <p class="text-gray-500 mt-2">Fill out the form below for bulk enquiries.</p>
+            </div>
+            
+            <form id="enquiry-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="name" name="name" required maxlength="50" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2.5 border focus:ring-amber-500 focus:border-amber-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="email" name="email" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2.5 border focus:ring-amber-500 focus:border-amber-500">
+                    </div>
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number (10 Digits)</label>
+                    <input type="tel" id="phone" name="phone" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2.5 border focus:ring-amber-500 focus:border-amber-500">
+                    <!-- Error message hidden by default, controlled by JS -->
+                    <p id="phone-error" class="text-red-500 text-xs mt-1 hidden">Please enter exactly 10 digits.</p>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700">Enquiry Details</label>
+                    <textarea id="message" name="message" rows="4" required maxlength="500" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2.5 border focus:ring-amber-500 focus:border-amber-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-lg shadow transition">
+                    Send Secure Enquiry
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
+        <p>&copy; <span id="current-year"></span> GiftLogo. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
