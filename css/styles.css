@@ -1,0 +1,483 @@
+/* css/styles.css */
+:root {
+  /* Amazon E-commerce Color Palette */
+  --bg-deep: #eaeded; 
+  --bg-card: #ffffff; 
+  --border-light: #dddddd; 
+  --amazon-orange: #c45500; 
+  --text-main: #0f1111; 
+  --text-muted: #565959; 
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+}
+
+.bg-orbs {
+  display: none; /* Hidden for clean retail look */
+}
+
+/* --- Header --- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #131921; 
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1rem 1.5rem;
+}
+.logo {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  padding: 2px;
+}
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+.header h1 span {
+  font-weight: 400;
+  color: #ff9900;
+}
+
+/* --- Section Headings --- */
+.section-heading {
+  text-align: center;
+  margin: 3rem 0;
+}
+.section-subtitle {
+  color: var(--amazon-orange);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+.gold-divider {
+  height: 2px;
+  width: 60px;
+  background: var(--amazon-orange);
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+
+/* --- Product Grid --- */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem; /* A balanced, breathable gap */
+  padding-bottom: 4rem;
+  max-width: 850px; /* Prevents the container from stretching too wide on large screens */
+  margin: 0 auto; /* Centers the whole block perfectly */
+}
+
+/* --- Product Cards --- */
+.product-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 380px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+.product-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* --- Image & Carousel Wrapper --- */
+.card-image-wrapper {
+  position: relative;
+  height: 280px;
+  width: 100%;
+  overflow: hidden;
+  background: #f8f8f8;
+}
+
+.carousel, .carousel-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.carousel .product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 1;
+}
+.carousel .product-image.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Carousel Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.95);
+  color: #111;
+  border: 1px solid #ccc;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background 0.2s;
+}
+.carousel-btn:hover { background: #f3f3f3; }
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+/* Carousel Dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 15;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cccccc;
+  cursor: pointer;
+}
+.dot.active { background: #111111; }
+
+/* --- Badges --- */
+.badge {
+  position: absolute;
+  top: 1rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  z-index: 20;
+}
+.badge-dark { left: 1rem; background: #232f3e; color: #fff; }
+.badge-gold { right: 1rem; background: #ff9900; color: #111; }
+.badge-coming-soon { right: 1rem; background: #B12704; color: white; }
+
+/* --- Text Overlay Fix --- */
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 1.5rem 0.5rem;
+  background: linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0) 100%);
+  z-index: 10;
+  pointer-events: none; /* Prevents text from blocking carousel clicks */
+}
+.image-overlay .title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+/* --- Placeholder (Diwali Card) --- */
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+  background: #f0f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+.diya-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+/* --- Card Details --- */
+.card-content { padding: 1rem 1.5rem 1.5rem; }
+.rating-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; }
+.hindi-title { color: var(--amazon-orange); font-weight: 500; font-size: 1rem; }
+.rating { font-size: 0.9rem; font-weight: 600; color: #de7921; }
+.rating-count { color: #007185; font-weight: 400; font-size: 0.85rem; }
+
+.description { color: var(--text-main); font-size: 0.9rem; line-height: 1.4; margin-bottom: 1rem; }
+
+.features-list { list-style: none; margin-bottom: 1.5rem; }
+.features-list li { font-size: 0.85rem; color: var(--text-main); margin-bottom: 0.4rem; display: flex; align-items: flex-start; gap: 0.5rem; }
+.check-icon { color: var(--amazon-orange); font-weight: bold; }
+
+/* --- Pricing Box --- */
+.price-section {
+  background: #f8f8f8;
+  border: 1px solid #e7e7e7;
+  border-radius: 6px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.price-label, .moq-label { display: block; font-size: 0.7rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; margin-bottom: 0.2rem; }
+.price-value { color: #B12704; font-size: 1.8rem; font-weight: 500; }
+.unit { font-size: 0.9rem; color: var(--text-muted); font-weight: 400; }
+.moq-value { font-weight: 600; font-size: 0.95rem; color: var(--text-main); }
+
+/* --- Amazon-Style Buttons --- */
+.whatsapp-btn {
+  width: 100%;
+  background: #ffd814; 
+  color: #0f1111;
+  border: 1px solid #fcd200;
+  border-radius: 8px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 1rem;
+}
+.whatsapp-btn:hover { background: #f7ca00; }
+
+.disabled-btn { background: #e7e7e7; color: #888; border-color: #ddd; cursor: not-allowed; }
+.disabled-btn:hover { background: #e7e7e7; }
+
+.specs-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  color: #007185;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.specs-link:hover { color: #c45500; text-decoration: underline; }
+
+.disabled-card { opacity: 0.8; filter: grayscale(10%); }
+
+/* --- Scroll Reveal Animations --- */
+.reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+
+/* --- Trust Badges --- */
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  padding: 3rem 1rem;
+  border-top: 1px solid var(--border-light);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.trust-icon {
+  font-size: 2.2rem;
+}
+.trust-item h4 {
+  font-size: 1rem;
+  color: var(--text-main);
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+}
+.trust-item p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* --- Footer --- */
+.footer {
+  background-color: #232f3e;
+  color: #dddddd;
+  margin-top: 2rem;
+}
+.footer-top {
+  background-color: #37475a;
+  text-align: center;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+.footer-top:hover {
+  background-color: #485769;
+}
+.back-to-top {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: block;
+}
+.footer-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2.5rem;
+  padding: 3rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.footer-column h3 {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.footer-column ul {
+  list-style: none;
+}
+.footer-column ul li {
+  margin-bottom: 0.6rem;
+}
+.footer-column ul li a {
+  color: #dddddd;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: text-decoration 0.2s;
+}
+.footer-column ul li a:hover {
+  text-decoration: underline;
+  color: #ff9900;
+}
+
+.footer-logo {
+  width: 60px !important;
+  height: 60px !important;
+  max-width: 60px;
+  border-radius: 50%;
+  border: 1px solid #565959;
+  padding: 2px;
+  object-fit: contain;
+}
+
+/* --- About Section --- */
+.about-section {
+  background-color: #131921; /* Matches Amazon Navy header/footer */
+  color: #ffffff;
+  padding: 5rem 1rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #ff9900;
+  color: #ff9900;
+  padding: 0.4rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.about-subhead {
+  color: #ff9900;
+  font-weight: 600;
+  letter-spacing: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.about-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+.about-heading .gold-text {
+  color: #f7ca00;
+}
+.about-body {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #cccccc;
+  margin-bottom: 3rem;
+  max-width: 800px;
+}
+.about-body strong {
+  color: #ffffff;
+}
+
+/* Quote Box */
+.quote-box {
+  background-color: #232f3e;
+  border: 1px solid #37475a;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.quote-sanskrit {
+  color: #ff9900;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: italic;
+}
+.quote-translation {
+  color: #eaeded;
+  font-size: 1rem;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .about-heading { font-size: 1.8rem; }
+  .about-body { font-size: 1rem; }
+}
