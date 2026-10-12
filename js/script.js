@@ -4,7 +4,7 @@
  * Replace '919876543210' with your actual business WhatsApp number.
  */
 function orderOnWhatsApp(productName) {
-  const phoneNumber = '917765840046'; 
+  const phoneNumber = '917632083777'; 
   const message = encodeURIComponent(`Hi NVODAY GIFTS, I would like to enquire about the ${productName}.`);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
   
