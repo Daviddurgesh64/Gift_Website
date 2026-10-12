@@ -8,7 +8,6 @@ function orderOnWhatsApp(productName) {
   const message = encodeURIComponent(`Hi NVODAY GIFTS, I would like to enquire about the ${productName}.`);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
   
-  // Open WhatsApp in a new tab
   window.open(whatsappUrl, '_blank');
 }
 // --- Carousel Logic ---
