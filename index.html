@@ -1,127 +1,237 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premium Gift Catalogue - Find the best luxury gifts and corporate presents.">
-    <title>Premium Gifts | Home</title>
-    
-    <!-- External CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    
-    <!-- Tailwind CSS (via CDN for layout, standard for static sites without a build step) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- External JavaScript (Deferred to load after HTML) -->
-    <script src="js/script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NVODAY GIFTS | Premium Festive Hampers</title>
+  <meta name="description" content="NVODAY Foundation provides premium gifting opportunities for occasions and festivals." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+<body>
 
-    <!-- Navigation Bar -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex-shrink-0 font-bold text-2xl tracking-tight text-gray-900">
-                Gift<span class="text-amber-600">Logo</span>
+  <!-- Ambient Background (Moved outside of the product cards) -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <header class="header">
+    <div class="container header-content">
+      <img src="logo.jpg" onerror="this.onerror=null; this.src='logo.png';" alt="NVODAY Logo" class="logo" />
+      <h1>NVODAY <span>GIFTS</span></h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="section-heading reveal">
+      <p class="section-subtitle">Exclusive Collection</p>
+      <h2>Festive & Gift Hampers</h2>
+      <div class="gold-divider"></div>
+    </div>
+
+    <div class="product-grid">
+      
+      <!-- Product 1: Kanjak Hamper (With Carousel) -->
+      <div class="product-card reveal">
+        <div class="card-image-wrapper">
+          <span class="badge badge-dark">NVO-HAM-001</span>
+          <span class="badge badge-gold shimmer">Festive Special 🪔</span>
+          
+          <!-- Carousel -->
+          <div class="carousel" id="kanjak-carousel">
+            <div class="carousel-inner">
+              <img src="product-1.jpg" onerror="this.onerror=null; this.src='product-1.jpg.jpg';" alt="Navratri Kanjak Hamper Angle 1" class="product-image active" />
+              <img src="product-2.jpg" onerror="this.onerror=null; this.src='product-2.jpg.jpg';" alt="Navratri Kanjak Hamper Angle 2" class="product-image" />
             </div>
             
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#home" class="hover:text-amber-600 transition">Home</a>
-                <a href="#products" class="hover:text-amber-600 transition">Products</a>
-                <a href="#about" class="hover:text-amber-600 transition">About Us</a>
-                <a href="#contact" class="hover:text-amber-600 transition">Bulk Enquiry</a>
-            </nav>
+            <!-- Navigation Arrows -->
+            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
             
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden font-bold text-amber-600 focus:outline-none">
-                Menu
-            </button>
+            <!-- Navigation Dots -->
+            <div class="carousel-dots">
+              <span class="dot active" onclick="currentSlide(0)"></span>
+              <span class="dot" onclick="currentSlide(1)"></span>
+            </div>
+          </div>
+
+          <div class="image-overlay">
+            <h2 class="title">Nvoday Navratri Kanjak...</h2>
+          </div>
         </div>
         
-        <!-- Mobile Nav Dropdown (Hidden by default) -->
-        <nav id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-2 space-y-2 shadow-lg absolute w-full">
-            <a href="#home" class="block py-2 text-gray-800 hover:text-amber-600">Home</a>
-            <a href="#products" class="block py-2 text-gray-800 hover:text-amber-600">Products</a>
-            <a href="#about" class="block py-2 text-gray-800 hover:text-amber-600">About Us</a>
-            <a href="#contact" class="block py-2 text-gray-800 hover:text-amber-600">Bulk Enquiry</a>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="relative bg-gray-900 text-white overflow-hidden hero-section">
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=1200" alt="Gifts Background" class="w-full h-full object-cover opacity-30 protected-img">
-        </div>
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 flex flex-col items-center text-center">
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Crafted for the Perfect Moment</h1>
-            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mb-8">Discover our curated collection of luxury pens, premium gift sets, and corporate hampers.</p>
-            <a href="#products" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">View Catalogue</a>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-900">Featured Products</h2>
-            <p class="mt-2 text-gray-600">Browse our exclusive collection.</p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Product 1 -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition">
-                <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=600" alt="Premium Pen" class="w-full h-64 object-cover protected-img">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-gray-900">Premium Luxury Pen</h3>
-                    <p class="text-gray-500 text-sm mt-1">Matte black finish with gold-plated nib.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <span class="text-lg font-bold text-amber-600">₹2,499</span>
-                    </div>
-                    <a href="https://wa.me/91XXXXXXXXXX?text=Hi,%20I'm%20interested%20in%20the%20Premium%20Luxury%20Pen%20(₹2,499)." target="_blank" rel="noopener noreferrer" class="mt-4 w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-medium py-2.5 rounded-lg transition">
-                        Order on WhatsApp
-                    </a>
-                </div>
+        <div class="card-content">
+          <div class="rating-row">
+            <span class="hindi-title">Navratri Kanjak Special Gift Box</span>
+            <span class="rating">⭐ 4.9 <span class="rating-count">(128)</span></span>
+          </div>
+          
+          <p class="description">Luxury royal purple rigid gift box with gold foil Maa Durga calligraphy...</p>
+          
+          <ul class="features-list">
+            <li><span class="check-icon">✦</span> 24K Gold foil hot-stamped sacred text</li>
+            <li><span class="check-icon">✦</span> Heavy-duty 1200 GSM rigid box</li>
+            <li><span class="check-icon">✦</span> Deep imperial purple matte finish</li>
+          </ul>
+          
+          <div class="price-section">
+            <div class="price-info">
+              <span class="price-label">Set of 9 Offer</span>
+              <div class="price-value">₹149 <span class="unit">/ Box</span></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section id="contact" class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-2xl shadow-lg border p-8 md:p-12">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl font-bold text-gray-900">Bulk & Corporate Orders</h2>
-                <p class="text-gray-500 mt-2">Fill out the form below for bulk enquiries.</p>
+            <div class="moq-info">
+              <span class="moq-label">Min. Order</span>
+              <span class="moq-value">9 Boxes</span>
             </div>
-            
-            <form id="enquiry-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                        <input type="text" id="name" name="name" required maxlength="50" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2.5 border focus:ring-amber-500 focus:border-amber-500">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                        <input type="email" id="email" name="email" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2.5 border focus:ring-amber-500 focus:border-amber-500">
-                    </div>
-                </div>
-                <div>
-                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number (10 Digits)</label>
-                    <input type="tel" id="phone" name="phone" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2.5 border focus:ring-amber-500 focus:border-amber-500">
-                    <!-- Error message hidden by default, controlled by JS -->
-                    <p id="phone-error" class="text-red-500 text-xs mt-1 hidden">Please enter exactly 10 digits.</p>
-                </div>
-                <div>
-                    <label for="message" class="block text-sm font-medium text-gray-700">Enquiry Details</label>
-                    <textarea id="message" name="message" rows="4" required maxlength="500" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2.5 border focus:ring-amber-500 focus:border-amber-500"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-lg shadow transition">
-                    Send Secure Enquiry
-                </button>
-            </form>
+          </div>
+          
+          <button class="whatsapp-btn" onclick="orderOnWhatsApp('Nvoday Navratri Kanjak Hamper')">
+            <svg class="whatsapp-icon" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Order on WhatsApp
+          </button>
+          
+          <a href="#" class="specs-link">View Full Specifications <span>⟶</span></a>
         </div>
-    </section>
+      </div>
 
-    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
-        <p>&copy; <span id="current-year"></span> GiftLogo. All rights reserved.</p>
-    </footer>
+      <!-- Product 2: Diwali Hamper -->
+      <div class="product-card disabled-card">
+        <div class="card-image-wrapper">
+          <span class="badge badge-dark">NVO-HAM-002</span>
+          <span class="badge badge-coming-soon">Unveiling Soon</span>
+          <div class="placeholder-image">
+            <div class="diya-icon">🪔</div>
+            <span>Diwali Collection</span>
+          </div>
+          <div class="image-overlay">
+            <h2 class="title">Nvoday Diwali Special...</h2>
+          </div>
+        </div>
+        
+        <div class="card-content">
+          <div class="rating-row">
+            <span class="hindi-title">Diwali Special Gift Box</span>
+            <span class="rating">-</span>
+          </div>
+          
+          <p class="description">Premium festive collection perfect for corporate and family gifting this Diwali season...</p>
+          
+          <ul class="features-list">
+            <li><span class="check-icon">✦</span> Premium Assorted Sweets & Dry Fruits</li>
+            <li><span class="check-icon">✦</span> Handcrafted Designer Diyas</li>
+            <li><span class="check-icon">✦</span> Elegant Festive Packaging</li>
+          </ul>
+          
+          <button class="whatsapp-btn disabled-btn" disabled>
+            Stay Tuned
+          </button>
+        </div>
+      </div>
 
+    </div> <!-- Closing product-grid -->
+  </main> <!-- Closing main -->
+<!-- --- About Section (Converted for Gifting) --- -->
+  <section class="about-section reveal">
+    <div class="container about-container">
+      <div class="about-badge">
+        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+        ABOUT NVODAY FOUNDATION
+      </div>
+      
+      <p class="about-subhead">WHO WE ARE</p>
+      
+      <h2 class="about-heading">
+        <span class="gold-text">ELEVATING CELEBRATIONS</span> through PREMIUM EVENT GIFTING and HOSPITALITY
+      </h2>
+      
+      <p class="about-body">
+        NVODAY (Nodal Venture for Overall Development in Academics and Youth) Foundation extends its vision of community and growth through <strong>NVODAY Gifts</strong>. We are a comprehensive hospitality partner dedicated to making every occasion memorable. Our core focus bridges meaningful connections through curated festive hampers, premium corporate gifting, college convocation packages, and complete event support.
+      </p>
+      
+      <div class="quote-box">
+        <div class="quote-sanskrit">"चिन्तनं परमं महत्म्"</div>
+        <div class="quote-translation">Thoughtful Contemplation & Meaningful Action is Supreme</div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Trust Badges Section -->
+  <section class="trust-badges container reveal">
+    <div class="trust-item">
+      <span class="trust-icon">🔒</span>
+      <div>
+        <h4>Secure Payment</h4>
+        <p>100% safe & secure checkout</p>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">📦</span>
+      <div>
+        <h4>Pan-India Delivery</h4>
+        <p>Fast and reliable shipping</p>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🤝</span>
+      <div>
+        <h4>Quality Assurance</h4>
+        <p>Premium gifting standards</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Complete Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <a href="#" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to top</a>
+    </div>
+    
+    <div class="footer-main container">
+      <div class="footer-column">
+        <h3>Get to Know Us</h3>
+        <ul>
+          <li><a href="#">About NVODAY Foundation</a></li>
+          <li><a href="#">Our Vision & Mission</a></li>
+          <li><a href="#">Corporate Gifting Options</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Policies & Help</h3>
+        <ul>
+          <li><a href="#">Shipping & Delivery</a></li>
+          <li><a href="#">Returns & Refunds</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Connect With Us</h3>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">WhatsApp Support</a></li>
+          <li><a href="#">Email Us</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <img src="logo.jpg" onerror="this.onerror=null; this.src='logo.png';" alt="NVODAY Logo" class="footer-logo" />
+        
+        <p>&copy; 2026 NVODAY Foundation. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
